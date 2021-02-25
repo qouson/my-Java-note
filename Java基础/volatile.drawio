@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-02-25T09:26:33.272Z" agent="5.0 (Windows)" etag="Nl7WUaTAwHPUcLk5IsWM" version="14.4.3" type="github">
+<mxfile host="app.diagrams.net" modified="2021-02-25T09:29:39.755Z" agent="5.0 (Windows)" etag="sl8oCxhVUREYga3CObGG" version="14.4.3" type="github">
   <diagram id="HMOzv6QydlwwtCJ3ZPqC" name="第 1 页">
     <mxGraphModel dx="854" dy="437" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -67,8 +67,8 @@
         <mxCell id="icVToL0R3yla69nHBmXb-1" value="2.原子性：数据完整性，要么都完成，要么都失败" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="120" y="380" width="270" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="icVToL0R3yla69nHBmXb-2" value="3.指令重排序：单线程保证语义一致情况下，编译器，内存将会对指令重排序" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="120" y="420" width="416" height="20" as="geometry" />
+        <mxCell id="icVToL0R3yla69nHBmXb-2" value="3.指令重排序：单线程保证语义一致情况下，编译器，内存将会对不存在依赖关系的指令重排序" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="420" width="519" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
