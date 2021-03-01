@@ -1,11 +1,14 @@
-<mxfile host="app.diagrams.net" modified="2021-03-01T09:28:56.679Z" agent="5.0 (Windows)" etag="7buhHIxOP9mox2_XkKZD" version="14.4.3" type="github">
+<mxfile host="app.diagrams.net" modified="2021-03-01T09:48:22.357Z" agent="5.0 (Windows)" etag="vzkwHW2lnWianA4ZCmGi" version="14.4.3" type="github">
   <diagram id="_sqtovBOgyfJliRNqcfL" name="第 1 页">
     <mxGraphModel dx="1408" dy="749" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="SZTV1edUdWBdWp1gTtkR-1" value="&lt;div align=&quot;left&quot;&gt;1.什么是公平锁和非公平锁：对于ReentrantLock，有两个构造函数，一个是ReentrantLock()，默认是NonFairLock；一个是ReentrantLock(boolean sync)，可设置FairLock和NonFairLock。&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;公平锁：即排队，先来后到&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;非公平锁：即插队，加塞，任意插队&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="SZTV1edUdWBdWp1gTtkR-1" value="&lt;div align=&quot;left&quot;&gt;1.什么是公平锁和非公平锁：&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;对于ReentrantLock，有两个构造函数，一个是ReentrantLock()，默认是NonFairLock；一个是ReentrantLock(boolean fair)，可设置FairLock和NonFairLock。&lt;b&gt;synchronized是非公平锁。&lt;/b&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;公平锁：指多个线程按照获取锁的顺序来获取锁（即排队，先来后到）&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;非公平锁：多个线程不是按照获取锁的顺序来获取说，有可能后申请锁的线程比先申请锁的线程优先获取锁，在高并发的情况下，有可能造成优先级反转（插队）或饥饿（一直排不上）（即插队，加塞，任意插队）&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="70" y="40" width="710" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="SZTV1edUdWBdWp1gTtkR-2" value="&lt;div align=&quot;left&quot;&gt;2.可重入锁，又叫递归锁：&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;指的是同一线程外层函数获得锁之后，内层递归函数仍然能获得该锁的代码，在同一线程在外层方法获取锁的时候，在进入内层方法会自动获取锁。即线程可以进入任何一个它已经拥有的锁所同步着的代码块。&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="180" width="700" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
