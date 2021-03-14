@@ -102,4 +102,104 @@
     - 打印命令行参数
     - ![20210314000338](https://cdn.jsdelivr.net/gh/qouson/my-pic-bed/pic/20210314000338.png)
 
+## 常用的JVM基本配置
+
+### 基础
+
+- JMM-Java内存模型
+![20210314103757](https://cdn.jsdelivr.net/gh/qouson/my-pic-bed/pic/20210314103757.png)
+- Case
+
+```java
+public class HelloGC1 {
+    public static void main(String[] args) {
+        //默认物理内存的1/64
+        long totalMemory = Runtime.getRuntime().totalMemory();
+        //默认物理内存的1/4
+        long maxMemory = Runtime.getRuntime().maxMemory();
+        System.out.println("TOTAL_MEMORY(-Xms) = " + totalMemory + "(字节)，" + (totalMemory / (double)1024 / 1024) + "MB");
+        System.out.println("MAX_MEMORY(-Xmx) = " + maxMemory + "(字节)，" + (maxMemory / (double)1024 / 1024) + "MB");
+    }
+}
+```
+
+### 常用参数
+
+#### -Xms
+  
+- 初始大小内存，默认为物理内存的1/64
+- 等价于-XX:InitialHeapSize
+  
+#### -Xmx
+
+- 最大分配内存，默认为物理内存的1/4
+- 等价于-XX:MaxHeapSize
+
+#### -Xss
+
+- 设置单个线程栈的大小，一般默认为512k~1024k，依赖于操作系统平台
+- 等价于-XX:ThreadStackSize
+- Case
+  - 为0代表默认参数。512k~1024k
+  ![20210314112251](https://cdn.jsdelivr.net/gh/qouson/my-pic-bed/pic/20210314112251.png)
+  - 调整-Xss1024k
+  ![20210314112513](https://cdn.jsdelivr.net/gh/qouson/my-pic-bed/pic/20210314112513.png)
+  ![20210314112444](https://cdn.jsdelivr.net/gh/qouson/my-pic-bed/pic/20210314112444.png)
+- Java8文档说明
+![20210314112035](https://cdn.jsdelivr.net/gh/qouson/my-pic-bed/pic/20210314112035.png)
+
+#### -Xmn
+
+- 设置年轻代大小，一般不调整，1/3堆空间（老年代2/3堆空间）
+
+#### -XX:MetaspaceSize
+
+- 设置元空间大小
+  - 元空间的本质和永久代类似，都是对JVM规范中方法区的实现
+  - 不过元空间和永久代的最大区别是，**元空间并不在虚拟机中，而是使用本地内存**，因此，默认情况下，元空间的大小仅受本地内存限制
+- -Xms10m -Xmx10m -XX:MetaspaceSize=1024m -XX:+PrintFlagsFinal
+
+#### 典型设置案例
+
+- -Xms128m -Xmx4096m -Xss1024k -XX:MetaspaceSize=512m -XX:+PrintCommandLineFlags -XX:+PrintGCDetails -XX:+UseSerialGC
+
+#### -XX:PrintGCDetails
+
+- 输出详细GC收集日志信息
+- GC
+  - 主要YoungGC
+  ![20210314122816](https://cdn.jsdelivr.net/gh/qouson/my-pic-bed/pic/20210314122816.png)
+- FullGC
+  - 主要OldGC Java7 PermGen -> Java8 Metaspace
+  ![20210314123127](https://cdn.jsdelivr.net/gh/qouson/my-pic-bed/pic/20210314123127.png)
+  ![20210314123348](https://cdn.jsdelivr.net/gh/qouson/my-pic-bed/pic/20210314123348.png)
+
+#### -XX:SurvivorRatio
+
+- 设置新生代中eden和s0/s1空间的比例
+- 默认-XX:SurvivorRatio=8,Eden:S0:S1=8:1:1
+- 假如-XX:SurvivorRatio=4,Eden:S0:S1=4:1:1,SurvivorRatio就是设置Eden区的比例占多少，S0/S1相同
+- Case:-XX:+PrintGCDetails -XX:+UseSerialGC -Xms10m -Xmx10m -XX:SurvivorRatio=8
+![20210314160835](https://cdn.jsdelivr.net/gh/qouson/my-pic-bed/pic/20210314160835.png)
+- Case:-XX:+PrintGCDetails -XX:+UseSerialGC -Xms10m -Xmx10m -XX:SurvivorRatio=4
+![20210314161527](https://cdn.jsdelivr.net/gh/qouson/my-pic-bed/pic/20210314161527.png)
+
+#### -XX:NewRatio
+
+- 配置年轻代与老年代在堆内存中的占比
+- 默认-XX:NewRatio=2，年轻代占1，老年代占2，年轻代占整个堆内存的1/3
+- 假如-XX:NewRatio=4，新生代占1，老年代占4，年轻代占整个堆内存的1/5，NewRatio值就是设置老年代的占比，剩下的1给新生代
+- Case:-Xms10m -Xmx10m -XX:+PrintGCDetails -XX:+UseSerialGC -XX:NewRatio=2
+![20210314162842](https://cdn.jsdelivr.net/gh/qouson/my-pic-bed/pic/20210314162842.png)
+- Case:-Xms10m -Xmx10m -XX:+PrintGCDetails -XX:+UseSerialGC -XX:NewRatio=4
+![20210314162929](https://cdn.jsdelivr.net/gh/qouson/my-pic-bed/pic/20210314162929.png)
+
+#### -XX:MaxTenuringThreshold
+
+- 设置垃圾的最大年龄，默认为15次，从yound到old
+- -XX：MaxTenuringThreshold=0
+- 设置为0，则年轻代对象不经过Survivor区，直接进入老年区。对于老年代较多的应用，可以提高效率。
+- 设置为一个较大值，则年轻代对象在Survivor进行多次复制，这样可以增加对象在年轻代的存活时间，增加年轻代被回收的概率。
+- **Java8给这个参数做了限制，只能在[0,15]之间。**
+
 ## ![20210313234753](https://cdn.jsdelivr.net/gh/qouson/my-pic-bed/pic/20210313234753.png)
