@@ -1,4 +1,34 @@
-# my-Java-note
-
-* [首页](/)
-* [Java基础](/Java基础)
+- [首页](README.md)
+- **algorithm**
+  - [algorithm](algorithm/algorithm.md)
+  - [反转链表](algorithm/leetcode/链表/反转链表.md)
+- **Java基础**
+  - [JVM-ERROR](Java基础/JVM/JVM-ERROR.md)
+  - [JVM-GC](Java基础/JVM/JVM-GC.md)
+  - [JVM-体系结构](Java基础/JVM/JVM-体系结构.md)
+  - [JVM-参数和调优](Java基础/JVM/JVM-参数和调优.md)
+  - [JVM-类运行机制](Java基础/JVM/JVM-类运行机制.md)
+  - [String知识](Java基础/String/String知识.md)
+  - [多线程-AQS](Java基础/多线程/多线程-AQS.md)
+  - [多线程-线程基础](Java基础/多线程/多线程-线程基础.md)
+  - [多线程-锁](Java基础/多线程/多线程-锁.md)
+  - [网络编程](Java基础/网络编程/网络编程.md)
+- **Java高并发**
+  - **中间件**
+    - **nginx**
+      - [nginx](中间件/nginx/nginx.md)
+    - **redis**
+      - [redis分布式锁](中间件/redis/redis分布式锁.md)
+      - [redis数据类型及应用](中间件/redis/redis数据类型及应用.md)
+      - [版本介绍](中间件/redis/版本介绍.md)
+      - [缓存淘汰策略](中间件/redis/缓存淘汰策略.md)
+  - **分布式**
+    - [基于MQ的分布式事务](Java高并发/分布式事务/基于MQ的分布式事务.md)
+- **spring**
+  - [Spring-AOP](spring/AOP/Spring-AOP.md)
+  - [Spring-IOC](spring/IOC/Spring-IOC.md)
+- **git/github**
+  - [github骚操作](git-github/github/github骚操作.md)
+- **linux**
+  - [常用命令](linux/常用命令/常用命令.md)
+  - [故障分析](linux/系统故障分析/故障分析.md)
