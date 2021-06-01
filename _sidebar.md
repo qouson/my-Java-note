@@ -22,10 +22,10 @@
     - **nginx**
       - [nginx](中间件/nginx/nginx.md)
     - **redis**
-      - [redis分布式锁](中间件/redis/redis分布式锁.md)
-      - [redis数据类型及应用](中间件/redis/redis数据类型及应用.md)
       - [版本介绍](中间件/redis/版本介绍.md)
+      - [redis数据类型及应用](中间件/redis/redis数据类型及应用.md)
       - [缓存淘汰策略](中间件/redis/缓存淘汰策略.md)
+      - [redis分布式锁](中间件/redis/redis分布式锁.md)
   - **分布式**
     - [基于MQ的分布式事务](Java高并发/分布式事务/基于MQ的分布式事务.md)
 - **spring**
