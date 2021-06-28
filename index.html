@@ -7,6 +7,10 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <!-- 文件夹样式 -->
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css" /> -->
+  <!-- 箭头样式 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
 </head>
 <body>
   <div id="app"></div>
@@ -16,13 +20,24 @@
     window.$docsify = {
       name: 'qouson\'s Java note',
       repo: 'https://github.com/qouson/my-Java-note',
-      homepage: 'README.md',
+      // homepage: 'README.md',
       loadSidebar: true,
       subMaxLevel: 3,
+      alias: {
+          "/.*/_sidebar.md": "/_sidebar.md",
+      },
       maxLevel: 5,//最大支持渲染的标题层级
-      // coverpage: true,
       auto2top: true,//切换页面后是否自动跳转到页面顶部
+      coverpage: true,
       autoHeader: true,
+      // ----------------------------PLUGINS------------------------------------
+      // 底部导航
+      pagination: {
+          previousText: "上一页",
+          nextText: "下一页",
+          crossChapter: true,
+          crossChapterText: true,
+      },
       //全文搜索
       search: {
         //maxAge: 86400000, // 过期时间，单位毫秒，默认一天
@@ -35,6 +50,7 @@
       plugins: [
         EditOnGithubPlugin.create('https://github.com/qouson/my-Java-note/blob/main/')
       ],
+      // ----------------------------PLUGINS------------------------------------
     }
   </script>
   <!-- Docsify v4 -->
@@ -49,5 +65,13 @@
   <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
   <!-- 字数统计 -->
   <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+  <!-- 侧边栏目录折叠 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+  <!-- 多tab支持 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1/dist/docsify-tabs.min.js"></script>
+  <!-- 底部 上一页下一页 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination@2/dist/docsify-pagination.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/external-script.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/ga.min.js"></script>
 </body>
 </html>
