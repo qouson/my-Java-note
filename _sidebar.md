@@ -30,8 +30,6 @@
     - [常用命令](linux/常用命令/常用命令.md)
   - [系统故障分析](linux/系统故障分析/)
     - [故障分析](linux/系统故障分析/故障分析.md)
-- [my-blind-spot](my-blind-spot.md)
-- [my-draw](my-draw/)
 - [spring](spring/)
   - [AOP](spring/AOP/)
     - [Spring-AOP](spring/AOP/Spring-AOP.md)
