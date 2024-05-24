@@ -1,0 +1,22 @@
+<mxfile host="app.diagrams.net" modified="2021-03-01T08:32:29.532Z" agent="5.0 (Windows)" etag="9jXCbuAvrNd5L-SQ5kCn" version="14.4.3" type="github">
+  <diagram id="dzlT-kWF1u38WmCNCx4t" name="第 1 页">
+    <mxGraphModel dx="1408" dy="749" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="It5MCNqZXRULs1bLGR67-1" value="&lt;div align=&quot;left&quot;&gt;ArrayList，HashSet，HashMap都是线程不安全的集合类&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;体现：在多线程的情况下，对以上集合进行操作，将报错：java.util.ConcurrentModifyException，即同步修改异常&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="20" width="620" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="It5MCNqZXRULs1bLGR67-2" value="&lt;div align=&quot;left&quot;&gt;对于ArrayList，解决如下：&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;1.使用Vector&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;2.使用Collections.synchronizedArrayList(new ArrayList())&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;3.使用java.util.concurrent下的写时复制ArrayList,CopyOnWriteArrayList&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="110" width="650" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="It5MCNqZXRULs1bLGR67-3" value="&lt;div align=&quot;left&quot;&gt;对于HashSet，解决如下：&lt;div align=&quot;left&quot;&gt;1.使用Collections.synchronizedSet(new HashSet())&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;2.使用java.util.concurrent下的写时复制Set,CopyOnWriteArraySet&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;PS：HashSet的底层是HashMap，HashSet的add方法只有一个参数的原因是HashMap&amp;lt;e，Object&amp;gt;,其中value存的是一个Object类型的PRESENT常量。&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="190" width="580" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="It5MCNqZXRULs1bLGR67-4" value="&lt;div align=&quot;left&quot;&gt;对于HashMap，解决如下：&lt;div align=&quot;left&quot;&gt;1.使用Collections.synchronizedMap(new HashMap())&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;2.使用java.util.concurrent下的ConcurrentHashMap&lt;/div&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="300" width="580" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

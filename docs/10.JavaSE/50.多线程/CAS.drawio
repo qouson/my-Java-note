@@ -1,0 +1,22 @@
+<mxfile>
+    <diagram id="06Y1f8x3J1CigL0LDfRR" name="第 1 页">
+        <mxGraphModel dx="1118" dy="790" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="eh8WErYhX_DAU6P_Zb1z-1" value="&lt;div style=&quot;font-size: 16px&quot;&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;CAS:Compare And Swap&lt;/font&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="20" width="250" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="eh8WErYhX_DAU6P_Zb1z-2" value="&lt;div align=&quot;justify&quot;&gt;1.使用Unsafe类的native方法Unsafe.getAndAddInt()直接操纵内存获取实时的共享变量的值&lt;/div&gt;&lt;div align=&quot;justify&quot;&gt;2.使用compareAndSwapInt()以期望值跟主内存中的值相比较，若相同，则更新成功；不相同则更新失败；do-while循环进行自旋更新；&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="90" width="560" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="eh8WErYhX_DAU6P_Zb1z-5" value="&lt;div align=&quot;left&quot;&gt;引发ABA问题：狸猫换太子，在多个线程的环境下，一个或多个线程将A修改为B，又将B修改为A，使得其中一个或多个线程期望值为A，修改为C正常执行，实际中间过程已经被修改多次；&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="190" width="350" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="eh8WErYhX_DAU6P_Zb1z-7" value="解决：加入版本号（时间戳），使用原子时间戳引用AtomStampReference类进行包装" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="250" width="450" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
