@@ -105,6 +105,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           { text: 'Java相关框架', link: '/more/javaframework/' },
           { text: '分布式', link: '/more/distribute/' },
           { text: 'DDD领域驱动设计', link: '/more/ddd/' },
+          { text: '系统设计', link: '/more/systemdesign/' },
         ],
       },
       { text: 'Java知识图谱', link: '/javamap/' },
