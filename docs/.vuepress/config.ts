@@ -80,6 +80,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         items: [
           { text: 'Spring', link: '/spring/spring/' },
           { text: 'SpringMVC', link: '/spring/springmvc/' },
+          { text: 'SpringBoot', link: '/spring/springboot/' },
         ],
       },
       {
@@ -100,9 +101,14 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           { text: 'linux', link: '/more/linux/' },
           { text: '设计模式', link: '/more/designpattern/' },
           { text: '数据结构与算法', link: '/more/datastructure/' },
+          { text: '计算机基础', link: '/more/computerscience/' },
+          { text: 'Java相关框架', link: '/more/javaframework/' },
+          { text: '分布式', link: '/more/distribute/' },
+          { text: 'DDD领域驱动设计', link: '/more/ddd/' },
         ],
       },
       { text: 'Java知识图谱', link: '/javamap/' },
+      // { text: 'chatgpt', link: 'https//chat.qouson666.site' },
       // { text: '关于', link: '/about/' },
       // {
         // text: '收藏',
